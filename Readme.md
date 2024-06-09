@@ -35,6 +35,7 @@ When installed, update connection string in appsettings.json in backend with you
 
 `dotnet ef database update`
 
+Install dependencies: `dotnet restore`.
 To run the app: `dotnet run`
 
 #### frontend
