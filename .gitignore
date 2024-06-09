@@ -1,0 +1,24 @@
+backend-profitFill/bin/*
+backend-profitFill/obj/*
+
+
+frontend-profitFill/node_modules
+frontend-profitFill/.pnp
+frontend-profitFill/.pnp.js
+
+# testing
+frontend-profitFill/coverage
+
+# production
+frontend-profitFill/build
+
+# misc
+frontend-profitFill/.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+frontend-profitFill/npm-debug.log*
+frontend-profitFill/yarn-debug.log*
+frontend-profitFill/yarn-error.log*

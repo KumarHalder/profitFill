@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: ./frontend-profitfill
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+  backend:
+    build: ./backend-profitFill
+    ports:
+      - "5236:5236"
+    depends_on:
+      - postgres
+    environment:
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=profitFill
+      - POSTGRES_PASSWORD=profitFill
+      - POSTGRES_DB=profitFill
+    entrypoint: /app/entrypoint.sh
+    volumes:
+      - ./backend-profitFill:/app
+
+  postgres:
+    image: postgres:latest
+    container_name: profitFill-postgres
+    environment:
+      - POSTGRES_USER=profitFill
+      - POSTGRES_PASSWORD=profitFill
+      - POSTGRES_DB=profitFill
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+    driver: local
